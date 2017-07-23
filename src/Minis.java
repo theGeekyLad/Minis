@@ -3,18 +3,20 @@ import java.util.Scanner;
 
 public class Minis {
 
-    public void write(File file, String s) {
+    public boolean write(File file, String s) {
         try {
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file));
             bufferedWriter.write(s);
             bufferedWriter.flush();
             bufferedWriter.close();
+            return true;
         } catch (IOException io) {
+            return false;
         }
     }
 
     public String read(File file) {
-        String s = "";
+        String s = null;
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
             String t;
